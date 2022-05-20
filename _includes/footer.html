@@ -1,26 +1,39 @@
+{% assign sponsors = site.data.sponsors | where: "kind", "master" %}
+
 <!-- Footer -->
 <footer id="footer">
   <section class="divider footer-wrapper">
+    <div class="sponsors">
+      <h3>Patrocinadores</h3> 
+      <ul class="sponsors-logo">
+        {% for item in sponsors %}
+        <li>
+          <a class="sponsors-img" src="{{ item.url }}"  target="_blank">
+            <img  src="{{item.logo}}" title="{{ item.name}}" alt="{{ item.name }}">
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
     <div class="emails">
       <h3>Fale com a Agile Brazil</h3>
       {% for email in site.emails %}
       <a href="mailto:{{email}}">{{email}}</a>
       {% endfor %}
-    </div>
-
-    <div class="social-media">
-      <h3>Siga a Agile Brazil</h3>
-      <ul class="icons">
-        {% for item in site.data.social %}
-        <li>
-          <a href="{{item.url}}"
-             target="_blank"
-             class="icon brands {{item.icon}}"
-             aria-label="{{item.media}}">
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
+      <div class="social-media">
+        <h3>Siga a Agile Brazil</h3>
+        <ul class="icons">
+          {% for item in site.data.social %}
+          <li>
+            <a href="{{item.url}}"
+               target="_blank"
+               class="icon brands {{item.icon}}"
+               aria-label="{{item.media}}">
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </section>
 
